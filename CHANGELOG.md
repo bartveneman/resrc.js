@@ -1,4 +1,9 @@
-## Latest Release: 0.9.1
+## Latest Release: 0.9.2
+
+* Fixed conditional ternary operator where query parameters were being ignored from the image url.
+* Update package.json with script path.
+
+## 0.9.1
 
 * Removed getAttribute("resrc") from the getImgSrc() function. This was causing an error in Internet Explorer 8 and below.
 
