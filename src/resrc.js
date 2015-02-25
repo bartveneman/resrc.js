@@ -178,7 +178,7 @@
     var index;
     var res;
     var parsedUri = parseUri(url);
-    imgPath = parsedUri.url ? parsedUri.path + "?" + parsedUri.query : parsedUri.path;
+    imgPath = parsedUri.query ? parsedUri.path + "?" + parsedUri.query : parsedUri.path;
     searchVal = /(https?):|(\/\/)/;
     index = imgPath.search(searchVal);
     res = imgPath.substring(index);

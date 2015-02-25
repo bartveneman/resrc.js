@@ -38,7 +38,7 @@ We have made sure it works on **Internet Explorer 6** and above.
 
 resrc.js supports plugins so you can add any additional functionality you may require. [Learn More](https://github.com/resrcit/resrc.plugin-boilerplate.js)
 
-## Latest Release: 0.9.1
+## Latest Release: 0.9.2
 
 For a full list of releases and changes please see the [CHANGELOG](https://github.com/resrcit/resrc.js/blob/master/CHANGELOG.md).
 
@@ -75,7 +75,7 @@ Please get in touch via: [EMAIL](mailto:support@resrc.it).
 
 ## License
 
-Copyright (C) 2014 by [ReSRC LTD](http://www.resrc.it)
+Copyright (C) 2014-2015 by [ReSRC LTD](http://www.resrc.it)
 Licensed under the GNU GENERAL PUBLIC LICENSE, Version 2, June 1991
 
 Please see [LICENSE](https://github.com/resrcit/resrc.js/blob/master/LICENSE).
