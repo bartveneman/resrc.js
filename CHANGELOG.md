@@ -1,4 +1,9 @@
-## Latest Release: 0.9.2
+## Latest Release: 0.9.3
+
+* Allow URL API parameters that have a key but no value to be parsed correctly.
+* Handle onerror event loop when the fallback image also errors.
+
+## 0.9.2
 
 * Fixed conditional ternary operator where query parameters were being ignored from the image url.
 * Update package.json with script path.

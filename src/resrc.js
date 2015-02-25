@@ -653,8 +653,10 @@
       var j = resrcParamArr.length;
       // Loop backwards through the resrc param array.
       while (j--) {
-        // Ensure we have the correct value for the resrc parameter. If the api param is key=val(val) get val inside parenthesis.
-        resrcParamArr[j] = setParameterAndValue(getParameter(resrcParamArr[j]), getParameterValue(resrcParamArr[j]));
+        // Ensure we have the correct value for the resrc parameter.
+        // If the resrc parameter has a key but no value then just return the key.
+        // If the api param is key=val(val) then get val inside parenthesis.
+        resrcParamArr[j] = getParameterValue(resrcParamArr[j]) ? setParameterAndValue(getParameter(resrcParamArr[j]), getParameterValue(resrcParamArr[j])) : getParameter(resrcParamArr[j]);
       }
       // Declare the final index position of the optimization "o=" parameter.
       var finalOParamIndexPosition = getFinalIndexPositionFromArray(resrcParamArr, "o=.*");
@@ -741,6 +743,8 @@
       // If there is an error set the src of the element to the fallback image path.
       elem.onerror = function(){
         this.src = fallbackImgPath;
+        // If there is an error with the fallback image set the onerror event to null to break out of the onerror loop.
+        this.onerror = null;
       };
     }
     else {
