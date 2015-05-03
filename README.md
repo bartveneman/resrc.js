@@ -1,4 +1,4 @@
-![ReSRC Logo](http://app.resrc.it/s=w120/C=L10,T40,R5,B35//www.resrc.it/img/favicon-144.png)
+![ReSRC Logo](http://www.resrc.it/img/github/logo-github.png)
 
 [resrc.js](http://www.resrc.it/docs/javascript/0.9) - Responsive Image Library
 ==========================================================================
