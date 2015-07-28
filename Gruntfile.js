@@ -1,38 +1,40 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    pkg : grunt.file.readJSON('package.json'),
-    version : '0.9.3',
-    srcPath : 'src/resrc.js',
-    distPath : 'dist/resrc-<%= version %>.min.js',
+    pkg : grunt.file.readJSON("package.json"),
+    version : "<%=pkg.version%>",
+    srcPath : "<%=pkg.main%>",
+    distPath : "dist/resrc-<%=version%>.min.js",
     jshint : {
       options : {
         jshintrc : ".jshintrc"
       },
-      all : ["<%= srcPath %>"]
+      all : ["<%=srcPath%>"]
     },
     uglify : {
       options : {
         banner : grunt.file.read("header.txt"),
-        compress : true,
+        compress: {
+          drop_console: true
+        },
         mangle : true,
         preserveComments : false,
-        report : 'gzip'
+        report : "gzip"
       },
       build : {
         files : {
-          '<%= distPath %>' : ['<%= srcPath %>']
+          "<%=distPath%>" : ["<%=srcPath%>"]
         }
       }
     },
     watch : {
       scripts : {
-        files : ['<%= srcPath %>'],
-        tasks : ['jshint', 'uglify']
+        files : ["<%=srcPath%>"],
+        tasks : ["jshint", "uglify"]
       }
     }
   });
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('build', ['jshint', 'uglify']);
+  grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.registerTask("build", ["jshint", "uglify"]);
 };

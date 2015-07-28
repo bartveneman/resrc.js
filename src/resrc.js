@@ -16,10 +16,11 @@
     ssl : false
   };
 
-  // Declare various window defaults.
+  // Declare various defaults.
   var windowHasResizeEvent = false;
   var windowResizeTimeout = 200;
   var windowLastWidth = 0;
+  var maxSize = 10000;
 
 
   /**
@@ -265,10 +266,11 @@
   /**
    * Round the pixel size based on the pixel rounding parameter.
    * @param pixelSize
-   * @param pixelRounding
+   * @param val
    * @returns {number}
    */
-  var pixelRound = function (pixelSize, pixelRounding) {
+  var pixelRound = function (pixelSize, val) {
+    var pixelRounding = val === 0 ? 1 : val;
     return Math.ceil(pixelSize / pixelRounding) * pixelRounding;
   };
 
@@ -284,11 +286,22 @@
 
   /**
    * Is the value a number?
-   * @param value
+   * @param val
    * @returns {boolean}
    */
-  var isNumber = function (value) {
-    return !isNaN(parseFloat(value)) && isFinite(value);
+  var isNumber = function (val) {
+    return !isNaN(parseFloat(val)) && isFinite(val);
+  };
+
+
+  /**
+   * Set the maximum allowed numeric value.
+   * @param val
+   * @param max
+   * @returns {number}
+   */
+  var maxAllowedSize = function(val, max) {
+    return Math.min(max, Math.max(1, val));
   };
 
 
@@ -336,7 +349,7 @@
    * @returns {number}
    */
   var getDeviceScreenInnerWidth = function () {
-    var zoomMultiplier = Math.round((screen.width / window.innerWidth) * 10) / 10;
+    var zoomMultiplier = Math.round((getWindowWidth() / getWindowInnerWidth()) * 10) / 10;
     return zoomMultiplier <= 1 ? 1 : zoomMultiplier;
   };
 
@@ -394,6 +407,15 @@
    */
   var getWindowHeight = function () {
     return document.documentElement.clientHeight || document.body && document.body.clientHeight || 768;
+  };
+
+
+  /**
+   * Get the window inner width.
+   * @returns {number}
+   */
+  var getWindowInnerWidth = function () {
+    return window.innerWidth ? window.innerWidth : getWindowWidth();
   };
 
 
@@ -642,7 +664,7 @@
     // Declare any existing resrc api params and make them lowercase.
     var resrcPathParams = parseUri(resrcPathPrefix).directory.toLowerCase().substring(1);
     // Declare the size param "s=". This value is either a width or a height depending which is larger.
-    var resrcSizeParam = elementPixelHeight <= elementPixelWidth === true ? setParameterAndValue("s","w"+ elementPixelWidth + ",pd" + dpi) : setParameterAndValue("s","h"+ elementPixelHeight + ",pd" + dpi);
+    var resrcSizeParam = elementPixelHeight <= elementPixelWidth === true ? setParameterAndValue("s","w"+ maxAllowedSize(elementPixelWidth,maxSize) + ",pd" + dpi) : setParameterAndValue("s","h"+ maxAllowedSize(elementPixelHeight,maxSize) + ",pd" + dpi);
     // Declare the fallback image url.
     var fallbackImgURL = getRemoteImageURL(resrcPathFull);
     // [A.] If there are existing resrc api parameters in the url, then...
@@ -728,9 +750,9 @@
     // Declare the current width of the element.
     var currentElemWidth = resrcObj.width;
     // Set the last width of the element.
-    elem.lastWidth = elem.lastWidth || 0;
-    // If the resrcOnResizeDown option is is set to false, then...
-    if (options.resrcOnResizeDown === false) {
+    elem.lastWidth = elem.lastWidth || null;
+    // If the resrcOnResizeDown option is is set to false and the elements last width is not equal to null then...
+    if (options.resrcOnResizeDown === false && elem.lastWidth !== null) {
       // Return if the last width of the element is >= to the current width.
       if (elem.lastWidth >= currentElemWidth) {
         return;
