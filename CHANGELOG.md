@@ -1,4 +1,11 @@
-## Latest Release: 0.9.3
+## Latest Release: 0.9.4
+
+* Bug fix in the replaceElementSrc() function for images with an initial width of 0 being ignored. 
+* Refactored the getDeviceScreenInnerWidth() function for better fallback.
+* Refactored the pixelRound() function so passing in a value of 0 returns 1 rather than Infinity.
+* Added maxAllowedSize() function which limits the maximum size (default: 10000) the resrcSizeParam variable can return.
+
+## 0.9.3
 
 * Allow URL API parameters that have a key but no value to be parsed correctly.
 * Handle onerror event loop when the fallback image also errors.

@@ -3,7 +3,7 @@
 [resrc.js](http://www.resrc.it/docs/javascript/0.9) - Responsive Image Library
 ==========================================================================
 
-resrc.js is a small, mobile friendly *(1.5kb in file size - Minified and Gzipped)* responsive image JavaScript library that produces pixel perfect images on demand.
+resrc.js is a small, mobile friendly responsive image JavaScript library that produces pixel perfect images on demand.
 The library requires your images to be served via [ReSRC](http://www.resrc.it) - The Responsive Image Service. Link your images to our simple service and let us take care of everything!
 
 Register your domain for a [FREE TRIAL](http://www.resrc.it/signup).
@@ -38,7 +38,7 @@ We have made sure it works on **Internet Explorer 6** and above.
 
 resrc.js supports plugins so you can add any additional functionality you may require. [Learn More](https://github.com/resrcit/resrc.plugin-boilerplate.js)
 
-## Latest Release: 0.9.3
+## Latest Release: 0.9.4
 
 For a full list of releases and changes please see the [CHANGELOG](https://github.com/resrcit/resrc.js/blob/master/CHANGELOG.md).
 

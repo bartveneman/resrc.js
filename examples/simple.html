@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <title>ReSRC Simple Example Running In Trial Mode</title>
   <style>.resrc {width:100%}</style>
+  <!-- 1. Load the resrc.js library -->
   <script src="../src/resrc.js"></script>
+  <!-- 2. On DOM ready, run resrc -->
   <script>
     resrc.ready(function(){
-      resrc.configure({
-        server:"trial.resrc.it"
-      }).run();
+      resrc.run();
     });
   </script>
 </head>
