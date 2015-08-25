@@ -19,7 +19,7 @@ Register your domain for a [FREE TRIAL](http://www.resrc.it/signup).
 * Pixel rounding support
 * Placeholder image support
 * Supports the popular ‘Mobile First’ approach
-* Optional resizing on image pixel down sizing
+* Optional http image requests for image down sizing
 * Does not use device detection via user-agents or cookies
 
 ## Browser Support ##
@@ -38,7 +38,7 @@ We have made sure it works on **Internet Explorer 6** and above.
 
 resrc.js supports plugins so you can add any additional functionality you may require. [Learn More](https://github.com/resrcit/resrc.plugin-boilerplate.js)
 
-## Latest Release: 0.9.4
+## Latest Release: 0.9.5
 
 For a full list of releases and changes please see the [CHANGELOG](https://github.com/resrcit/resrc.js/blob/master/CHANGELOG.md).
 
@@ -46,9 +46,9 @@ For a full list of releases and changes please see the [CHANGELOG](https://githu
 
 Please see [DOCUMENTATION](http://www.resrc.it/docs/javascript/0.9).
 
-## Tests
+## Running Tests
 
-Coming Soon.
+To run the tests, simply run ```npm install``` if you haven't already, followed by ```npm test```.
 
 ## Building a minified release
 

@@ -1,6 +1,9 @@
 (function (resrc) {
   "use strict";
 
+  // Set the current build version.
+  resrc.version = "0.9.5";
+
   // Set the options property or create an empty options object.
   resrc.options = resrc.options || {};
 
@@ -789,6 +792,7 @@
   /**
    * Initialize resrc
    * @param elem
+   * @returns {Array|NodeList}
    */
   var initResrc = function (elem) {
     // Declare the elemArr.
@@ -807,9 +811,14 @@
     }
     // Loop through the elemArr.
     for (var i = 0; i < elemArr.length; i++) {
-      // Return if a specific item in the array is null.
-      if (elemArr[i] === null) {
-        return;
+      // If the item in the array is null,
+      if (elemArr[i] === null ||
+        // Or the item in the array is not a HTML nodeType element,
+        elemArr[i].nodeType !== 1 ||
+        // Or the item has no image src,
+        getImgSrc(elemArr[i]) === null) {
+        // Continue onto the next item in the array.
+        continue;
       }
       // If the resrcOnPinch option is set to true add the "gestureend" event listener to the element.
       if (options.resrcOnPinch) {
@@ -822,6 +831,7 @@
     if (options.resrcOnResize && !windowHasResizeEvent) {
       addWindowResizeEvent();
     }
+    return elemArr;
   };
 
 

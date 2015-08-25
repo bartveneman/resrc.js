@@ -1,4 +1,7 @@
-*.min.js
 .DS_Store
 .idea
+.grunt
 node_modules
+test/coverage
+_SpecRunner.html
+*.min.js

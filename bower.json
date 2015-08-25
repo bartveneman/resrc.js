@@ -1,0 +1,25 @@
+{
+  "name": "resrc.js",
+  "main": "src/resrc.js",
+  "version": "0.9.5",
+  "homepage": "https://github.com/resrcit/resrc.js",
+  "authors": [
+    "ReSRC (https://github.com/resrcit)"
+  ],
+  "description": "A JavaScript library for pixel perfect images on demand.",
+  "keywords": [
+    "resrc",
+    "images",
+    "responsive",
+    "responsive images",
+    "image CDN"
+  ],
+  "license": "GPL-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
