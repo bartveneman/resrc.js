@@ -46,7 +46,7 @@ For a full list of releases and changes please see the [CHANGELOG](https://githu
 
 Please see [DOCUMENTATION](http://www.resrc.it/docs/javascript/0.9).
 
-## Running Tests
+## Running Tests [![Build Status](https://travis-ci.org/resrcit/resrc.js.svg)](https://travis-ci.org/resrcit/resrc.js)
 
 To run the tests, simply run ```npm install``` if you haven't already, followed by ```npm test```.
 
