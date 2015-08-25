@@ -1,5 +1,5 @@
 /**
- * ReSRCit v0.9.4
+ * ReSRCit v0.9.5
  * http://www.resrc.it
  * Copyright (C) 2014-2015 ReSRC Ltd.
  */
