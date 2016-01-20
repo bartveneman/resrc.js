@@ -231,7 +231,8 @@
    * @returns {string}
    */
   var parseSrcToUniformFormat = function (src, server) {
-    if (src.match(/\/\//g).length > 1) {
+    var match = src.match(/\/\//g);
+    if (match && match.length > 1) {
       var parsedUri = parseUri(src);
       return parsedUri.authority !== server ? src.replace(parsedUri.protocol + "://" + parsedUri.authority, getProtocol(options.ssl) + server) : src;
     }
